@@ -1,0 +1,17 @@
+{
+    "useConfigFiles": true,
+    "plugins": {
+        "@vue/cli-plugin-babel": {},
+        "@vue/cli-plugin-typescript": {
+            "classComponent": true,
+            "tsLint": true,
+            "lintOn": ["save"],
+            "useTsWithBabel": true
+        },
+        "@vue/cli-plugin-router": {
+            "historyMode": true
+        },
+        "@vue/cli-plugin-vuex": {}
+    },
+    "cssPreprocessor": "node-sass"
+}
