@@ -1,0 +1,16 @@
+import { MutationTree } from "vuex";
+import UserState from "./state";
+
+export function save(state: UserState, user: UserState): void {
+    state.id = user.id;
+    state.name = user.name;
+}
+
+export function clear(state: UserState): void {
+    state.id = "";
+    state.name = "";
+}
+export default <MutationTree<UserState>> {
+    save,
+    clear,
+};

@@ -12,6 +12,9 @@
         "ordered-imports": false,
         "quotemark": [true, "douoble"],
         "trailing-comma": false,
-        "arrow-parens": false
+        "arrow-parens": false,
+        "array-type":  [true, "generic"],
+        "ban-types": [false],
+        "no-angle-bracket-type-assertion": false
     }
 }
