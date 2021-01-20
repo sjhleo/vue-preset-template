@@ -15,6 +15,7 @@ module.exports = (api, opts) => {
       Object.keys(files)
         .filter(path => path.startsWith("src/"))
         .forEach(path => delete files[path])
+        delete files["src/tslint.json"]
     })
   
     api.render(`./template/${opts.mode}`)

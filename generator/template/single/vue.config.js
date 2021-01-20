@@ -1,5 +1,5 @@
 const path = require("path");
-
+const isProd = process.env.NODE_ENV === "production";
 module.exports = {
     //基本路径
     publicPath: "./",
@@ -38,7 +38,7 @@ module.exports = {
     configureWebpack: {},
     css: {
         // 启用 CSS modules
-        requireModuleExtension: false,
+        // requireModuleExtension: false,
         // 是否使用css分离插件, 使用该插件 css的热更新会失效
         extract: isProd,
         // 开启 CSS source maps，一般不建议开启
