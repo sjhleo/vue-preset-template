@@ -4,7 +4,7 @@
         "@vue/cli-plugin-babel": {},
         "@vue/cli-plugin-typescript": {
             "classComponent": true,
-            "tsLint": true,
+            "tsLint": false,
             "lintOn": ["save"],
             "useTsWithBabel": true
         },
