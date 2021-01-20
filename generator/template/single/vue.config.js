@@ -35,5 +35,17 @@ module.exports = {
         config.resolve.alias.set("@", path.join(__dirname, "src"));
     },
     //调整 webpack 配置 https://cli.vuejs.org/zh/guide/webpack.html#%E7%AE%80%E5%8D%95%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F
-    configureWebpack: {}
+    configureWebpack: {},
+    css: {
+        // 启用 CSS modules
+        requireModuleExtension: false,
+        // 是否使用css分离插件, 使用该插件 css的热更新会失效
+        extract: isProd,
+        // 开启 CSS source maps，一般不建议开启
+        sourceMap: false,
+        // css预设器配置项
+        loaderOptions: {
+            sass: {}
+        }
+    }
 };

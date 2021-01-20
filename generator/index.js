@@ -1,6 +1,7 @@
 module.exports = (api, opts) => {
     api.extendPackage({
       dependencies: {
+        "axios": "^0.19.2"
       },
       devDependencies: {
         "raw-loader": "^1.0.0"

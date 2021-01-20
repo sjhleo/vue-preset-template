@@ -11,10 +11,20 @@
         "object-literal-sort-keys": false,
         "ordered-imports": false,
         "quotemark": [true, "double"],
+        "prefer-const": false,
+        "only-arrow-functions": false,
+        "no-shadowed-variable": false,
+        "object-literal-shorthand": false,
+        "array-type": false,
+        "ban-types": false,
+        "max-classes-per-file": false,
+        "variable-name": false,
+        "one-variable-per-declaration": false,
+        "member-ordering": false,
         "trailing-comma": false,
+        "no-string-literal": false,
+        "no-namespace": false,
         "arrow-parens": false,
-        "array-type":  [true, "generic"],
-        "ban-types": [false],
-        "no-angle-bracket-type-assertion": false
+        "no-console": false
     }
 }
