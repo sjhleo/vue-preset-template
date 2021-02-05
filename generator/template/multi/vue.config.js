@@ -49,7 +49,13 @@ module.exports = {
         sourceMap: false,
         // css预设器配置项
         loaderOptions: {
-            sass: {}
+            sass: {
+                //设置css中引用文件的路径，引入通用使用的scss文件（如包含的@mixin）
+                prependData: `
+    				$baseUrl: "/";
+                    @import '~@/assets/styles/_mixin.scss';
+				`
+            }
         }
     }
 };

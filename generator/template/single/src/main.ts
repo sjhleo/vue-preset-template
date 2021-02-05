@@ -1,13 +1,17 @@
 import Vue from "vue";
-import App from "@/views/dashboard";
 import router from "./router";
 import store from "./store";
 import axiosConfig from "@/axios.config";
-
+import iView from "view-design";
+import components from "./utils/rename-iview-components";
+import "@/assets/styles/index.scss";
 Vue.config.productionTip = false;
+
+Vue.use(iView);
+Vue.use(components);
 axiosConfig();
 new Vue({
     router,
     store,
-    render: h => h(App)
+    template: "<div id='app'><router-view /></div>"
 }).$mount("#app");

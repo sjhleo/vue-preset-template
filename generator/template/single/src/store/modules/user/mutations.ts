@@ -10,7 +10,7 @@ export function clear(state: UserState): void {
     state.id = "";
     state.name = "";
 }
-export default <MutationTree<UserState>> {
+export default {
     save,
     clear,
-};
+} as MutationTree<UserState>;

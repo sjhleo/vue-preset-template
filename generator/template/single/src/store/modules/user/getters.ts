@@ -8,7 +8,7 @@ export function name(state: State): string {
     return state.name;
 }
 
-export default <GetterTree<State, any>> {
+export default {
     id,
     name,
-};
+} as GetterTree<State, any>;
