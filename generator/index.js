@@ -10,7 +10,8 @@ module.exports = (api, opts) => {
             "raw-loader": "^1.0.0"
         },
         scripts: {
-            check: "http-server ./dist -a 127.0.0.1 -p 5050"
+            check: "http-server ./dist -a 127.0.0.1 -p 5050",
+            prettier: "prettier --write src/**/*.{ts,tsx,html,scss,js}"
         }
     });
     // 删除 vue-cli3 默认目录
