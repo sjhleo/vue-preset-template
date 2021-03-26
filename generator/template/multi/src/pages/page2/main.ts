@@ -5,8 +5,9 @@ import axiosConfig from "@/axios.config";
 import iView from "view-design";
 import components from "../../utils/rename-iview-components";
 import "@/assets/styles/index.scss";
+import { style } from "@/assets/styles";
 Vue.config.productionTip = false;
-
+style();
 Vue.use(iView);
 Vue.use(components);
 axiosConfig();

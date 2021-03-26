@@ -7,7 +7,8 @@ module.exports = (api, opts) => {
             nprogress: "^0.2.0"
         },
         devDependencies: {
-            "raw-loader": "^1.0.0"
+            "raw-loader": "^1.0.0",
+            "@types/js-cookie": "^2.2.6"
         },
         scripts: {
             check: "http-server ./dist -a 127.0.0.1 -p 5050",
@@ -17,7 +18,9 @@ module.exports = (api, opts) => {
     // 删除 vue-cli3 默认目录
     api.render(files => {
         Object.keys(files)
-        .filter(path => path.startsWith("src/") || path.startsWith("public/"))
+            .filter(
+                path => path.startsWith("src/") // || path.startsWith("public/")
+            )
             .forEach(path => delete files[path]);
     });
 

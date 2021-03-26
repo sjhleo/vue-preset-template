@@ -53,5 +53,13 @@ module.exports = {
 				`
             }
         }
+    },
+    devServer: {
+        host: "0.0.0.0",
+        port: 8000, // 端口号
+        https: false, // https:{type:Boolean}
+        open: true, //配置自动启动浏览器  http://172.16.1.12:7071/rest/mcdPhoneBar/
+        hot: true // 热更新
+        // proxy: 'http://localhost:8000'   // 配置跨域处理,只有一个代理
     }
 };
