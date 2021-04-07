@@ -7,6 +7,7 @@ import VueRouter, { RouteConfig } from "vue-router";
 import NProgress from "nprogress";
 import Cookies from "js-cookie";
 import Vuex from "vuex";
+import * as directiveObj from "@/common/directive";
 export default class Entry {
     public routes: Array<RouteConfig> = [];
     public storeModules: any = {};
@@ -20,6 +21,7 @@ export default class Entry {
         Vue.use(iView);
         Vue.use(components);
         axiosConfig();
+        this.directiveInit();
         Vue.prototype.$bus = new Vue();
         new Vue({
             router: this.routerInit(),
@@ -49,5 +51,10 @@ export default class Entry {
     public storeInit() {
         Vue.use(Vuex);
         return new Vuex.Store({ modules: this.storeModules });
+    }
+    public directiveInit(): void {
+        for (const [key, value] of Object.entries(directiveObj)) {
+            Vue.directive(key.replace(/([A-Z])/g, "-$1").toLowerCase(), value);
+        }
     }
 }
