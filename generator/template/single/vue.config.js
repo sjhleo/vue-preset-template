@@ -1,5 +1,8 @@
 const path = require("path");
 const isProd = process.env.NODE_ENV === "production";
+const FileManagerPlugin = require("filemanager-webpack-plugin");
+const CompressionPlugin = require("compression-webpack-plugin"); //Gzip
+const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
 module.exports = {
     //基本路径
     publicPath: "./",
@@ -35,7 +38,45 @@ module.exports = {
         config.resolve.alias.set("@", path.join(__dirname, "src"));
     },
     //调整 webpack 配置 https://cli.vuejs.org/zh/guide/webpack.html#%E7%AE%80%E5%8D%95%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F
-    configureWebpack: {},
+    configureWebpack: config => {
+        isProd &&
+            config.plugins.push(
+                new FileManagerPlugin({
+                    events: {
+                        onEnd: {
+                            delete: ["./dist.zip"],
+                            archive: [
+                                {
+                                    source: "./dist",
+                                    destination: "./dist.zip"
+                                }
+                            ]
+                        }
+                    }
+                })
+            );
+        config.plugins.push(
+            new CompressionPlugin({
+                /* [file]被替换为原始资产文件名。
+                           [path]替换为原始资产的路径。
+                           [dir]替换为原始资产的目录。
+                           [name]被替换为原始资产的文件名。
+                           [ext]替换为原始资产的扩展名。
+                           [query]被查询替换。*/
+                filename: "[path].gz[query]",
+                //压缩算法
+                algorithm: "gzip",
+                //匹配文件
+                test: /\.js$|\.css$|\.html$/,
+                //压缩超过此大小的文件,以字节为单位
+                threshold: 10240,
+                minRatio: 0.8,
+                //删除原始文件只保留压缩后的文件
+                deleteOriginalAssets: isProd
+            })
+        );
+        config.plugins.push(new HardSourceWebpackPlugin());
+    },
     css: {
         // 启用 CSS modules
         // requireModuleExtension: false,

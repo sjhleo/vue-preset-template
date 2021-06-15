@@ -8,7 +8,10 @@ module.exports = (api, opts) => {
         },
         devDependencies: {
             "raw-loader": "^1.0.0",
-            "@types/js-cookie": "^2.2.6"
+            "@types/js-cookie": "^2.2.6",
+            "filemanager-webpack-plugin": "^5.0.0",
+            "compression-webpack-plugin": "^3.1.0",
+            "hard-source-webpack-plugin": "^0.13.1"
         },
         scripts: {
             check: "http-server ./dist -a 127.0.0.1 -p 5050",
