@@ -33,7 +33,7 @@ export default class Entry {
         Vue.use(VueRouter);
         const router = new VueRouter({ routes: this.routes });
         router.beforeEach((to, from, next) => {
-            let title = to.meta.title || "";
+            let title = to.meta?.title || "";
             NProgress.start();
             window.document.title = title;
             if (!Cookies.get("access_token") && to.name !== "login") {

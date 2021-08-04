@@ -80,6 +80,9 @@ module.exports = {
             })
         );
         config.plugins.push(new HardSourceWebpackPlugin());
+        // 生产环境下禁用console
+        isProd &&
+            (config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true);
     },
     css: {
         // 启用 CSS modules
