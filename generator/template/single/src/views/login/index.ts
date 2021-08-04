@@ -31,7 +31,7 @@ export default class Login extends Vue {
         password: [{ required: true, message: "密码不能为空", trigger: "blur" }]
     };
 
-    public title: string = commonSetting.title || "数据服务";
+    public title: string = commonSetting.title || "系统登录";
 
     public onLogin(): void {
         this.isLoading = true;

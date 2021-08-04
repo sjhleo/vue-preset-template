@@ -15,7 +15,8 @@ module.exports = (api, opts) => {
         },
         scripts: {
             check: "http-server ./dist -a 127.0.0.1 -p 5050",
-            prettier: "prettier --write src/**/*.{ts,tsx,html,scss,js}"
+            prettier: "prettier --write src/**/*.{ts,tsx,html,scss,js}",
+            "compress:img": "img-master compress"
         }
     });
     // 删除 vue-cli3 默认目录
